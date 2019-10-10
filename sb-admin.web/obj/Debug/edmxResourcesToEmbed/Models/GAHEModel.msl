@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GAHEModelStoreContainer" CdmEntityContainer="GAHEEntities">
+    <EntitySetMapping Name="avance">
+      <EntityTypeMapping TypeName="GAHEModel.avance">
+        <MappingFragment StoreEntitySet="avance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_avance" ColumnName="tipo_avance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="caso">
+      <EntityTypeMapping TypeName="GAHEModel.caso">
+        <MappingFragment StoreEntitySet="caso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="responsable_id" ColumnName="responsable_id" />
+          <ScalarProperty Name="avance_id" ColumnName="avance_id" />
+          <ScalarProperty Name="aperturaPersona_id" ColumnName="aperturaPersona_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documento">
+      <EntityTypeMapping TypeName="GAHEModel.documento">
+        <MappingFragment StoreEntitySet="documento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="mime" ColumnName="mime" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="tamano" ColumnName="tamano" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="expediente_id" ColumnName="expediente_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evento">
+      <EntityTypeMapping TypeName="GAHEModel.evento">
+        <MappingFragment StoreEntitySet="evento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_evento" ColumnName="tipo_evento" />
+          <ScalarProperty Name="descripcion_evento" ColumnName="descripcion_evento" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="servicio_id" ColumnName="servicio_id" />
+          <ScalarProperty Name="expediente_id" ColumnName="expediente_id" />
+          <ScalarProperty Name="tipo_evento_id" ColumnName="tipo_evento_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="expediente">
+      <EntityTypeMapping TypeName="GAHEModel.expediente">
+        <MappingFragment StoreEntitySet="expediente">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estadoid" ColumnName="estadoid" />
+          <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
+          <ScalarProperty Name="clase_id" ColumnName="clase_id" />
+          <ScalarProperty Name="responsable_id" ColumnName="responsable_id" />
+          <ScalarProperty Name="ubicacion_id" ColumnName="ubicacion_id" />
+          <ScalarProperty Name="caso_id" ColumnName="caso_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="juzgado">
+      <EntityTypeMapping TypeName="GAHEModel.juzgado">
+        <MappingFragment StoreEntitySet="juzgado">
+          <ScalarProperty Name="id_juzgado" ColumnName="id_juzgado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+          <ScalarProperty Name="piso" ColumnName="piso" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="nombre_juez" ColumnName="nombre_juez" />
+          <ScalarProperty Name="apellido_juez" ColumnName="apellido_juez" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="juzgado_id" ColumnName="juzgado_id" />
+          <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="juzgado_evento">
+      <EntityTypeMapping TypeName="GAHEModel.juzgado_evento">
+        <MappingFragment StoreEntitySet="juzgado_evento">
+          <ScalarProperty Name="id_juzgado_evento" ColumnName="id_juzgado_evento" />
+          <ScalarProperty Name="juzgado_evento1" ColumnName="juzgado_evento" />
+          <ScalarProperty Name="evento_id" ColumnName="evento_id" />
+          <ScalarProperty Name="juzgado_id" ColumnName="juzgado_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Navbar">
+      <EntityTypeMapping TypeName="GAHEModel.Navbar">
+        <MappingFragment StoreEntitySet="Navbar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nameOption" ColumnName="nameOption" />
+          <ScalarProperty Name="controller" ColumnName="controller" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="imageClass" ColumnName="imageClass" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="activeli" ColumnName="activeli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parte_caso">
+      <EntityTypeMapping TypeName="GAHEModel.parte_caso">
+        <MappingFragment StoreEntitySet="parte_caso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="caso_id" ColumnName="caso_id" />
+          <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona">
+      <EntityTypeMapping TypeName="GAHEModel.persona">
+        <MappingFragment StoreEntitySet="persona">
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="GAHEModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicio">
+      <EntityTypeMapping TypeName="GAHEModel.servicio">
+        <MappingFragment StoreEntitySet="servicio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarea">
+      <EntityTypeMapping TypeName="GAHEModel.tarea">
+        <MappingFragment StoreEntitySet="tarea">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tarea1" ColumnName="tarea" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+          <ScalarProperty Name="caso_id" ColumnName="caso_id" />
+          <ScalarProperty Name="responsable_id" ColumnName="responsable_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telefono_persona">
+      <EntityTypeMapping TypeName="GAHEModel.telefono_persona">
+        <MappingFragment StoreEntitySet="telefono_persona">
+          <ScalarProperty Name="id_telefono_persona" ColumnName="id_telefono_persona" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="telefonosId" ColumnName="telefonosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telefonos">
+      <EntityTypeMapping TypeName="GAHEModel.telefonos">
+        <MappingFragment StoreEntitySet="telefonos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="tipo_telefono" ColumnName="tipo_telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_evento">
+      <EntityTypeMapping TypeName="GAHEModel.tipo_evento">
+        <MappingFragment StoreEntitySet="tipo_evento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_evento1" ColumnName="tipo_evento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_juzgado">
+      <EntityTypeMapping TypeName="GAHEModel.tipo_juzgado">
+        <MappingFragment StoreEntitySet="tipo_juzgado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_juzgado1" ColumnName="tipo_juzgado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_persona">
+      <EntityTypeMapping TypeName="GAHEModel.tipo_persona">
+        <MappingFragment StoreEntitySet="tipo_persona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipo_persona1" ColumnName="tipo_persona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="GAHEModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="RememberMe" ColumnName="RememberMe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

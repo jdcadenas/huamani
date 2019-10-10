@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GAHEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="avance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_avance" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="caso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="referencia" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="responsable_id" Type="int" Nullable="false" />
+    <Property Name="avance_id" Type="int" Nullable="false" />
+    <Property Name="aperturaPersona_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="documento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="fechacreacion" Type="date" Nullable="false" />
+    <Property Name="mime" Type="nchar" MaxLength="10" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="extension" Type="varchar" MaxLength="50" />
+    <Property Name="tamano" Type="int" />
+    <Property Name="creado" Type="int" />
+    <Property Name="expediente_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_evento" Type="int" Nullable="false" />
+    <Property Name="descripcion_evento" Type="varchar" MaxLength="250" />
+    <Property Name="fecha_inicio" Type="date" Nullable="false" />
+    <Property Name="servicio_id" Type="int" />
+    <Property Name="expediente_id" Type="int" />
+    <Property Name="tipo_evento_id" Type="int" />
+  </EntityType>
+  <EntityType Name="expediente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" />
+    <Property Name="fechacreacion" Type="date" />
+    <Property Name="hora" Type="time" Precision="7" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="estadoid" Type="int" />
+    <Property Name="tipo_id" Type="int" />
+    <Property Name="clase_id" Type="int" />
+    <Property Name="responsable_id" Type="int" />
+    <Property Name="ubicacion_id" Type="int" />
+    <Property Name="caso_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="juzgado">
+    <Key>
+      <PropertyRef Name="id_juzgado" />
+    </Key>
+    <Property Name="id_juzgado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="lugar" Type="varchar" MaxLength="50" />
+    <Property Name="piso" Type="smallint" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_juez" Type="varchar" MaxLength="50" />
+    <Property Name="apellido_juez" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="juzgado_id" Type="int" Nullable="false" />
+    <Property Name="tipo_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="juzgado_evento">
+    <Key>
+      <PropertyRef Name="id_juzgado_evento" />
+    </Key>
+    <Property Name="id_juzgado_evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="juzgado_evento" Type="int" />
+    <Property Name="evento_id" Type="int" Nullable="false" />
+    <Property Name="juzgado_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Navbar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameOption" Type="varchar" MaxLength="250" />
+    <Property Name="controller" Type="varchar" MaxLength="50" />
+    <Property Name="action" Type="varchar" MaxLength="50" />
+    <Property Name="area" Type="varchar" MaxLength="50" />
+    <Property Name="imageClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="estatus" Type="bit" />
+    <Property Name="activeli" Type="bit" />
+  </EntityType>
+  <EntityType Name="parte_caso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="caso_id" Type="int" />
+    <Property Name="persona_id" Type="int" />
+  </EntityType>
+  <EntityType Name="persona">
+    <Key>
+      <PropertyRef Name="id_persona" />
+    </Key>
+    <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dni" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="celular" Type="varchar" MaxLength="50" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="usuarioId" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="servicio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tarea">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tarea" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+    <Property Name="prioridad" Type="varchar" MaxLength="50" />
+    <Property Name="caso_id" Type="int" />
+    <Property Name="responsable_id" Type="int" />
+  </EntityType>
+  <EntityType Name="telefono_persona">
+    <Key>
+      <PropertyRef Name="id_telefono_persona" />
+    </Key>
+    <Property Name="id_telefono_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="telefonosId" Type="int" />
+  </EntityType>
+  <EntityType Name="telefonos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_telefono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tipo_evento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_evento" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tipo_juzgado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_juzgado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tipo_persona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_persona" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="User" Type="int" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="RememberMe" Type="bit" />
+  </EntityType>
+  <Association Name="FK_caso_avance">
+    <End Role="avance" Type="Self.avance" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="caso" Type="Self.caso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="caso">
+        <PropertyRef Name="avance_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documento_expediente">
+    <End Role="expediente" Type="Self.expediente" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="documento" Type="Self.documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="expediente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="documento">
+        <PropertyRef Name="expediente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_expediente">
+    <End Role="expediente" Type="Self.expediente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="evento" Type="Self.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="expediente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="expediente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_servicio">
+    <End Role="servicio" Type="Self.servicio" Multiplicity="0..1" />
+    <End Role="evento" Type="Self.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="servicio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_tipo_evento1">
+    <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="1" />
+    <End Role="evento" Type="Self.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_evento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="tipo_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_expediente_caso">
+    <End Role="caso" Type="Self.caso" Multiplicity="1" />
+    <End Role="expediente" Type="Self.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="caso_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_juzgado_evento_evento">
+    <End Role="evento" Type="Self.evento" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="juzgado_evento" Type="Self.juzgado_evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="evento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="juzgado_evento">
+        <PropertyRef Name="evento_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_juzgado_evento_juzgado">
+    <End Role="juzgado" Type="Self.juzgado" Multiplicity="0..1" />
+    <End Role="juzgado_evento" Type="Self.juzgado_evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="juzgado">
+        <PropertyRef Name="id_juzgado" />
+      </Principal>
+      <Dependent Role="juzgado_evento">
+        <PropertyRef Name="juzgado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_juzgado_tipo_juzgado">
+    <End Role="tipo_juzgado" Type="Self.tipo_juzgado" Multiplicity="1" />
+    <End Role="juzgado" Type="Self.juzgado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_juzgado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="juzgado">
+        <PropertyRef Name="tipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_parte_caso_caso">
+    <End Role="caso" Type="Self.caso" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parte_caso" Type="Self.parte_caso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="parte_caso">
+        <PropertyRef Name="caso_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_parte_caso_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parte_caso" Type="Self.parte_caso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="parte_caso">
+        <PropertyRef Name="persona_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_AspNetUsers">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_tipo_persona">
+    <End Role="tipo_persona" Type="Self.tipo_persona" Multiplicity="0..1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Navbar">
+    <End Role="Navbar" Type="Self.Navbar" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Navbar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarea_caso">
+    <End Role="caso" Type="Self.caso" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarea">
+        <PropertyRef Name="caso_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarea_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tarea" Type="Self.tarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="tarea">
+        <PropertyRef Name="responsable_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_telefono_persona_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="telefono_persona" Type="Self.telefono_persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="telefono_persona">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_telefono_persona_telefonos">
+    <End Role="telefonos" Type="Self.telefonos" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="telefono_persona" Type="Self.telefono_persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="telefonos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="telefono_persona">
+        <PropertyRef Name="telefonosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GAHEModelStoreContainer">
+    <EntitySet Name="avance" EntityType="Self.avance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="caso" EntityType="Self.caso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="documento" EntityType="Self.documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="evento" EntityType="Self.evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="expediente" EntityType="Self.expediente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="juzgado" EntityType="Self.juzgado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="juzgado_evento" EntityType="Self.juzgado_evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="parte_caso" EntityType="Self.parte_caso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servicio" EntityType="Self.servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarea" EntityType="Self.tarea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telefono_persona" EntityType="Self.telefono_persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telefonos" EntityType="Self.telefonos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_evento" EntityType="Self.tipo_evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_juzgado" EntityType="Self.tipo_juzgado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_persona" EntityType="Self.tipo_persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_caso_avance" Association="Self.FK_caso_avance">
+      <End Role="avance" EntitySet="avance" />
+      <End Role="caso" EntitySet="caso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documento_expediente" Association="Self.FK_documento_expediente">
+      <End Role="expediente" EntitySet="expediente" />
+      <End Role="documento" EntitySet="documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_expediente" Association="Self.FK_evento_expediente">
+      <End Role="expediente" EntitySet="expediente" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_servicio" Association="Self.FK_evento_servicio">
+      <End Role="servicio" EntitySet="servicio" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_tipo_evento1" Association="Self.FK_evento_tipo_evento1">
+      <End Role="tipo_evento" EntitySet="tipo_evento" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_expediente_caso" Association="Self.FK_expediente_caso">
+      <End Role="caso" EntitySet="caso" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_juzgado_evento_evento" Association="Self.FK_juzgado_evento_evento">
+      <End Role="evento" EntitySet="evento" />
+      <End Role="juzgado_evento" EntitySet="juzgado_evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_juzgado_evento_juzgado" Association="Self.FK_juzgado_evento_juzgado">
+      <End Role="juzgado" EntitySet="juzgado" />
+      <End Role="juzgado_evento" EntitySet="juzgado_evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_juzgado_tipo_juzgado" Association="Self.FK_juzgado_tipo_juzgado">
+      <End Role="tipo_juzgado" EntitySet="tipo_juzgado" />
+      <End Role="juzgado" EntitySet="juzgado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_parte_caso_caso" Association="Self.FK_parte_caso_caso">
+      <End Role="caso" EntitySet="caso" />
+      <End Role="parte_caso" EntitySet="parte_caso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_parte_caso_persona" Association="Self.FK_parte_caso_persona">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="parte_caso" EntitySet="parte_caso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_AspNetUsers" Association="Self.FK_persona_AspNetUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="persona" EntitySet="persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_tipo_persona" Association="Self.FK_persona_tipo_persona">
+      <End Role="tipo_persona" EntitySet="tipo_persona" />
+      <End Role="persona" EntitySet="persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Navbar" Association="Self.FK_Roles_Navbar">
+      <End Role="Navbar" EntitySet="Navbar" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Users" Association="Self.FK_Roles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tarea_caso" Association="Self.FK_tarea_caso">
+      <End Role="caso" EntitySet="caso" />
+      <End Role="tarea" EntitySet="tarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tarea_persona" Association="Self.FK_tarea_persona">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="tarea" EntitySet="tarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_telefono_persona_persona" Association="Self.FK_telefono_persona_persona">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="telefono_persona" EntitySet="telefono_persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_telefono_persona_telefonos" Association="Self.FK_telefono_persona_telefonos">
+      <End Role="telefonos" EntitySet="telefonos" />
+      <End Role="telefono_persona" EntitySet="telefono_persona" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
